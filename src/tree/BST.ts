@@ -21,21 +21,22 @@ class BST {
       // Keep the current
       let current: Node | null = this.root;
       // Keep the parent
-      let parent = current;
+      let parent: Node = current;
       while (current !== null) {
-        // 1. Update parent node
-        // 2. Update current node
-
         // Find insertion point
         if (inputValue < current.value) {
           current = parent.left;
           if (current === null) {
             parent.left = node;
+          } else {
+            parent = current;
           }
         } else {
           current = parent.right;
           if (current === null) {
             parent.right = node;
+          } else {
+            parent = current;
           }
         }
       }
